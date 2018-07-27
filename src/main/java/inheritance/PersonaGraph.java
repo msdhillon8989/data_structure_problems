@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.pokkt.lang.DurationConstants;
+
 
 import java.util.Timer;
 
@@ -23,7 +23,7 @@ public class PersonaGraph extends QueueData {
     PersonaGraph()
     {
         Timer timer = new Timer("LoggingServiceTimerpersona", true);
-        timer.scheduleAtFixedRate(timerTask, DurationConstants.MilliSeconds.ONE_SECOND*3, 3 * DurationConstants.MilliSeconds.ONE_SECOND);
+        timer.scheduleAtFixedRate(timerTask, 1000*3, 3 * 1000);
     }
 
 

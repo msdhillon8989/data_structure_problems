@@ -2,7 +2,7 @@ package demo;
 
 
 
-import org.apache.commons.codec.binary.Base64;
+
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -36,7 +36,7 @@ public class GenerateToken {
             Mac mac = Mac.getInstance("HmacSHA256");
             mac.init(secretKey);
             byte[] hmacData = mac.doFinal(data.getBytes("UTF-8"));
-            return Base64.encodeBase64String(hmacData);
+           // return Base64.encodeBase64String(hmacData);
         }
         catch (Exception ex) {
             ex.printStackTrace();

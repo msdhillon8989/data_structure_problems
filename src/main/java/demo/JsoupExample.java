@@ -20,19 +20,31 @@ import java.util.ArrayList;
 public class JsoupExample {
 
 
-    public static void getInsertDataFronPlayStore() {
+    public static void getDataFronPlayStore() {
         ArrayList<String> names = new ArrayList<>();
         names.add("com.gggg.tier");
-        System.out.println(getInsertData(names).toString());
+        System.out.println(getAppData(names).toString());
     }
 
     public static void main(String[] args) {
-        getInsertDataFomAppStore();
-        //getInsertDataFronPlayStore();
+       // getDataFomAppStore();
+        //getDataFronPlayStore();
+        int i = 50000;
+        while(i-->0) {
+            try {
+                getDataFromUrl("https://www.imdb.com/title/tt7690638/?ref_=india_t_up");
+                Thread.sleep(10);
+                System.out.println(i);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 
-    private static void getInsertDataFomAppStore() {
+    private static void getDataFomAppStore() {
         ArrayList<String> bundles = new ArrayList<>();
         bundles.add("com.dunyailetisim.samanyoluhaber");
 
@@ -58,9 +70,6 @@ public class JsoupExample {
                     appData.put("category", jsonAppData.getString("primaryGenreName"));
                     appData.put("platform", "ios");
                     appData.put("user_rating", jsonAppData.getDouble("averageUserRating"));
-
-
-
                     result.put(appData);
                 }
             } catch (Exception e) {
@@ -71,19 +80,13 @@ public class JsoupExample {
         return result;
     }
 
-    public static JSONArray getInsertData(ArrayList<String> packages) {
+    public static JSONArray getAppData(ArrayList<String> packages) {
         JSONArray insetData = new JSONArray();
         for (String appBundle : packages) {
             String url = "https://play.google.com/store/apps/details?id=" + appBundle;
             JSONObject appData = new JSONObject();
             try {
-/*
-                Document doc = Jsoup.parse("<html><head></head>" +
-                        "<div class = \"id-app-title\">dummy title</div>" +
-                        "<div class = \"content\" itemprop =\"contentRating\">Rated for 18+</div>" +
-                        "<div class = \"score\" >4.5</div>" +
-                        "" +
-                        "<body></body></html>");*///
+
                 Document doc= Jsoup.connect(url).get();
 
                 appData.put("title", getValue(doc,"id-app-title"));
@@ -132,10 +135,21 @@ public class JsoupExample {
     public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
         try {
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-            String jsonText = readAll(rd);
-            JSONObject json = new JSONObject(jsonText);
+
+            JSONObject json = new JSONObject(getDataFromUrl(url));
             return json;
+        } finally {
+            is.close();
+        }
+    }
+
+
+    private static String getDataFromUrl(String url) throws IOException
+    {
+        InputStream is = new URL(url).openStream();
+        try {
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+            return readAll(rd);
         } finally {
             is.close();
         }

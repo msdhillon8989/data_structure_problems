@@ -54,6 +54,8 @@ public class Series {
 
     private Integer oCount;
 
+    private Double duration;
+
     public Long getId() {
         return id;
     }
@@ -168,4 +170,11 @@ public class Series {
         this.oCount = oCount;
     }
 
+    public Double getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Double duration) {
+        this.duration = duration;
+    }
 }
