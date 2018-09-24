@@ -85,7 +85,7 @@ public class Hello {
 	static char temp[];
 	private static String reverseSub(String s,int n,int m)
 	{
-		//StringBuilder ss = new StringBuilder(s.substring(n,m));
+		//StringBuilder ss = new StringBuilder(s.substring(cols,rows));
 		char chars[] = s.toCharArray();
 		char max=chars[n];
 		int index =n;

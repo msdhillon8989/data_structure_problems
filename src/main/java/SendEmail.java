@@ -124,7 +124,7 @@ public class SendEmail
 			String body="";
 
 			to="daljit.kaur@hpe.com";
-		//	to="deepikav@hpe.com,jatin.bansal@hpe.com,kobi.iyakutti@hpe.com,maninders@hpe.com,vikas.k@hpe.com,ajinkya.nag.bapat@hpe.com,anniruddha.mah.lanke@hpe.com,audumbar.raj.nevarekar@hpe.com,diksha.bajaj@hpe.com,pravin.jag.chavan@hpe.com,prithvi.sureka@hpe.com,prajwal.s@hpe.com,anusha.m2@hpe.com,divya.kashyap@hpe.com,dharshini.n@hpe.com,akshayraj.ash.sawant@hpe.com,nikita.bhagat@hpe.com";
+		//	to="deepikav@hpe.com,jatin.bansal@hpe.com,kobi.iyakutti@hpe.com,maninders@hpe.com,vikas.k@hpe.com,ajinkya.nag.bapat@hpe.com,anniruddha.mah.lanke@hpe.com,audumbar.raj.nevarekar@hpe.com,diksha.bajaj@hpe.com,pravin.jag.chavan@hpe.com,prithvi.sureka@hpe.com,prajwal.s@hpe.com,anusha.m2@hpe.com,divya.kashyap@hpe.com,dharshini.cols@hpe.com,akshayraj.ash.sawant@hpe.com,nikita.bhagat@hpe.com";
 			from="basavaraj.thilagar@hpe.com";
 			subject="Sweets at my desk";
 			smtpHostServer="smtp3.hp.com";

@@ -16,9 +16,6 @@ public class MergeSort {
 			merge(l,middle,h);
 					
 		}
-		
-		
-		
 	}
 	
 	
